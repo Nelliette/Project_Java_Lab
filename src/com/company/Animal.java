@@ -82,5 +82,4 @@ public class Animal
     {
         return Math.round(weight * 100.0) / 100.0;
     }
-
 }

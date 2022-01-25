@@ -8,5 +8,4 @@ public class Phone
     Double screenSize;
     String os;
 
-
 }
