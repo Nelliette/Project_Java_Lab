@@ -1,5 +1,7 @@
 package com.company;
 
+import java.time.format.DateTimeFormatter;
+
 public class Main {
 
     public static void main(String[] args)
@@ -61,6 +63,8 @@ public class Main {
         bob.showHumanInformation();
         mazda.showCarInformation();
         dog.showAnimalInformationForHuman();
+        bob.getSalary();
+        bob.setSalary(2200.0);
 
     }
 }
