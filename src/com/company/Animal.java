@@ -2,6 +2,7 @@ package com.company;
 
 public class Animal
 {
+
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.3;
     private static final Double DEFAULT_DOG_WEIGHT = 13.0;
     private static final Double DEFAULT_CAT_WEIGHT = 2.3;
@@ -77,9 +78,14 @@ public class Animal
         String isAliveString = alive? "żywe":"martwe";
         System.out.println("Podejście do życia :"+ isAliveString);
     }
-
+    void showAnimalInformationForHuman()
+    {
+        System.out.println("Zwierze jakie posiada to "+species+" który wabi się "+name+" jego waga wynosi :"+weight+"kg, oraz ma "+age+" lat");
+    }
     double round()
     {
         return Math.round(weight * 100.0) / 100.0;
     }
+
+
 }

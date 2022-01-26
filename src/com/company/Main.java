@@ -44,9 +44,23 @@ public class Main {
         cat.takeForWalk();
         cat.takeForWalk();
         cat.feed(1.0);
+        Car mazda = new Car("Sześć","Mazda");
+        mazda.age = 2;
+        mazda.color = "Bordowy";
+        mazda.fuel = "Benzyna";
+        mazda.gearbox = "Automat";
+        mazda.type = "SUV";
 
 
+        Human bob = new Human();
+        bob.firstName ="Bob";
+        bob.lastName = "Kowalsky";
+        bob.pet = dog;
+        bob.typeOfCar = mazda;
 
+        bob.showHumanInformation();
+        mazda.showCarInformation();
+        dog.showAnimalInformationForHuman();
 
     }
 }
