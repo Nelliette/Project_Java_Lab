@@ -7,7 +7,7 @@ public class Human
         String firstName;
         String lastName;
         Animal pet;
-        Car typeOfCar;
+        private Car typeOfCar;
         private Double salary;
         private LocalDate lastSalaryInformation;
         private Double previousBalance;
@@ -17,7 +17,29 @@ public class Human
                 this.salary = 3500.00;
                 this.lastSalaryInformation = LocalDate.now();
                 this.previousBalance = this.salary;
+                this.typeOfCar = gettypeOfCar();
 
+
+        }
+
+        public Car gettypeOfCar()
+        {
+                return typeOfCar;
+        }
+
+
+        public void setTypeOfCar(Car typeOfCar)
+        {
+                if (this.salary > typeOfCar.value)
+                {
+                        System.out.println("Udało Ci się zakupić samochód za gotówkę");
+                } else if (this.salary > (typeOfCar.value / 12))
+                {
+                        System.out.println("Udało Ci się wpakować w kredyt ... ale masz to auto !");
+                } else
+                {
+                        System.out.println("Pomyśl o samochodzie jak będzie Cię na niego stać ,a teraz do roboty !!!");
+                }
         }
 
         public Double getSalary()
@@ -45,6 +67,7 @@ public class Human
         {
                 System.out.println("Imię :"+firstName);
                 System.out.println("Nazwisko :"+lastName);
+
 
 
         }

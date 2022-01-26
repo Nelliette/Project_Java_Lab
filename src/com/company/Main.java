@@ -46,7 +46,7 @@ public class Main {
         cat.takeForWalk();
         cat.takeForWalk();
         cat.feed(1.0);
-        Car mazda = new Car("Sześć","Mazda");
+        Car mazda = new Car("Sześć","Mazda",20.000);
         mazda.age = 2;
         mazda.color = "Bordowy";
         mazda.fuel = "Benzyna";
@@ -54,17 +54,19 @@ public class Main {
         mazda.type = "SUV";
 
 
+
         Human bob = new Human();
         bob.firstName ="Bob";
         bob.lastName = "Kowalsky";
         bob.pet = dog;
-        bob.typeOfCar = mazda;
-
         bob.showHumanInformation();
-        mazda.showCarInformation();
-        dog.showAnimalInformationForHuman();
+
         bob.getSalary();
-        bob.setSalary(2200.0);
+        bob.setSalary(2.200);
+        bob.setTypeOfCar(mazda);
+        mazda.showCarInformation();
+        //dog.showAnimalInformationForHuman();
+
 
     }
 }
