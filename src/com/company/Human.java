@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import org.w3c.dom.ls.LSOutput;
 
 import java.time.LocalDate;
 
@@ -13,20 +14,44 @@ public class Human
         private Double salary;
         private LocalDate lastSalaryInformation;
         private Double previousBalance;
+        Double cash;
 
         public Human()
         {
                 this.salary = 3500.00;
                 this.lastSalaryInformation = LocalDate.now();
                 this.previousBalance = this.salary;
-                this.typeOfCar = gettypeOfCar();
-
+                this.typeOfCar = null;
+                this.pet = null;
 
         }
 
-        public Car gettypeOfCar()
+        public Human(String firstName, String lastName,Double cash)
         {
-                return typeOfCar;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.cash = cash;
+        }
+
+       public Car gettypeOfCar()
+        {
+               return typeOfCar;
+        }
+        public Double getCash()
+        {
+                return cash;
+        }
+        public void setCash(Double cash)
+        {
+                this.cash = cash;
+        }
+        public void carBuyer(Car purchaser)
+        {
+                this.typeOfCar = purchaser;
+        }
+        public void carSeller(Car dealer)
+        {
+                this.typeOfCar = null;
         }
 
 
@@ -67,12 +92,14 @@ public class Human
                 }
         }
 
-        void showHumanInformation()
-        {
-                System.out.println("Imię :"+firstName);
-                System.out.println("Nazwisko :"+lastName);
 
+
+        public boolean equals(Object obj)
+        {
+                System.out.println("Zakaz handlu ludzmi !!!");
+                return super.equals(obj);
         }
+
 
         @Override
         public String toString()

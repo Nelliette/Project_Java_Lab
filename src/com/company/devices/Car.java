@@ -1,10 +1,9 @@
 package com.company.devices;
+import com.company.Human;
+import com.company.Salleable;
 
-public class Car extends Devices
+public class Car extends Devices implements Salleable
 {
-    //final String model;
-   // final String producer;
-    //final Integer yearOfProduction;
     String color;
     Integer age;
     String fuel;
@@ -22,37 +21,34 @@ public class Car extends Devices
         this.type = type;
         this.value = value;
     }
+    public void sell(Human seller,Human buyer,Double price)
+    {
+        if(seller.gettypeOfCar() != null)
+        {
+            if (buyer.getCash() >= price)
+            {
+                buyer.setCash(buyer.getCash()-price);
+                seller.setCash(seller.getCash()+price);
+                buyer.carBuyer(seller.gettypeOfCar());
+                seller.carSeller(null);
+                System.out.println("Właśnie kupiłeś samochód.");
+            }
+            else
+            {
+                System.out.println("Nie posiadasz wystarczającej kwoty na kupno tego auta.");
+            }
+        }
+        else
+        {
+            System.out.println("Sprzedajacy nie posiada żadnego pojazdu na własność.");
+        }
+    }
     public void turnOn()
     {
         System.out.println("Uruchomienie silnika za ...3...2...1 i 1/2...1 i 1/4....1...jeee");
     }
 
-    void showCarInformation()
-    {
-        System.out.println("Producent posiadanego samochodu to :"+producer+ ", model "+ model+". Szczegółowe dane poniżej :");
-        System.out.println("Kolor: " +color);
-        System.out.println("Wiek: "+ age);
-        System.out.println("Rodzaj paliwa: "+ fuel);
-        System.out.println("Rodzaj skrzyni biegów: "+gearbox);
-        System.out.println("Typ nadwozia: "+type);
 
-    }
-
-    /*@Override
-    public String toString()
-    {
-        return "Samochód{" +
-                "model='" + model + '\'' +
-                ", Producent='" + producer + '\'' +
-                ", kolor='" + color + '\'' +
-                ", wiek=" + age +
-                ", rodzaj paliwa='" + fuel + '\'' +
-                ", skrzynia biegów='" + gearbox + '\'' +
-                ", typ nadwozia='" + type + '\'' +
-                ", cena=" + value +
-                ", rok produkcji: =" + yearOfProduction +
-                '}';
-    }*/
 
     @Override
     public String toString()

@@ -1,6 +1,8 @@
 package com.company;
+import com.company.Human;
 
-public class Animal
+public class Animal implements Salleable
+
 {
 
     private static final Double DEFAULT_ANIMAL_WEIGHT = 1.3;
@@ -88,13 +90,37 @@ public class Animal
     }
 
     @Override
+    public void sell(Human seller, Human buyer, Double price)
+    {
+        if (seller.pet != null)
+        {
+            if (buyer.getCash()>= price)
+            {
+                buyer.setCash(buyer.getCash()-price);
+                seller.setCash(seller.getCash()+price);
+                buyer.pet = seller.pet;
+                System.out.println("Gratulacje właśnie kupiłeś zwierzę.");
+            }
+
+            else
+            {
+                System.out.println("Niestety nie stać Cie na tego zwierzaka");
+            }
+        }
+        else
+        {
+            System.out.println("Osoba od której próbujesz kupić zwierzę żadnego nie posiada");
+        }
+    }
+
+    @Override
     public String toString()
     {
-        return "Animal{" +
-                "species='" + species + '\'' +
-                ", name='" + name + '\'' +
-                ", weight=" + weight +
-                ", age=" + age +
+        return "Zwierzak{" +
+                "o gatunku ='" + species + '\'' +
+                ", Imieniu ='" + name + '\'' +
+                ", wadze =" + weight +
+                ", wieku =" + age +
                 ", alive=" + alive +
                 '}';
     }

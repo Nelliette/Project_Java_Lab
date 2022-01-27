@@ -54,11 +54,8 @@ public class Main {
 
 
 
-        Human bob = new Human();
-        bob.firstName ="Bob";
-        bob.lastName = "Kowalsky";
-        bob.pet = dog;
-        bob.showHumanInformation();
+        Human bob = new Human("Bob","Kowalsky",7000.0);
+        Human stan = new Human("Stan","Stanowy",5000.0);
         bob.getSalary();
         bob.setSalary(2200.0);
         bob.settypeOfCar(mazda);
@@ -73,6 +70,14 @@ public class Main {
         s8.turnOn();
         mazda.turnOn();
         System.out.println(s8);
+        stan.pet = dog;
+        stan.pet.sell(stan,bob,1500.0);
+        System.out.println(bob.firstName+" kupił "+stan.pet+" od "+stan.firstName+" teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
+        bob.settypeOfCar(mazda);
+        bob.gettypeOfCar().sell(bob,stan,5000.0);
+        System.out.println(bob.firstName+" sprzedał  kupującemu "+stan.firstName+" samochód teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
+
+
 
 
     }
