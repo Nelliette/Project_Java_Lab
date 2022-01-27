@@ -87,4 +87,15 @@ public class Animal
         return Math.round(weight * 100.0) / 100.0;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", age=" + age +
+                ", alive=" + alive +
+                '}';
+    }
 }

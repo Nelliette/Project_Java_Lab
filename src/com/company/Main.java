@@ -1,6 +1,6 @@
 package com.company;
 
-import java.time.format.DateTimeFormatter;
+import com.company.devices.Car;
 
 public class Main {
 
@@ -17,7 +17,7 @@ public class Main {
         System.out.println(cat);
 
         Double weightBeforeEating = dog.getWeight();
-        dog.showAnimalInformation();
+       /* dog.showAnimalInformation();
 
 
         dog.feed(1.0);
@@ -45,14 +45,10 @@ public class Main {
         cat.takeForWalk();
         cat.takeForWalk();
         cat.takeForWalk();
-        cat.feed(1.0);
-        Car mazda = new Car("Sześć","Mazda",20.000);
-        mazda.age = 2;
-        mazda.color = "Bordowy";
-        mazda.fuel = "Benzyna";
-        mazda.gearbox = "Automat";
-        mazda.type = "SUV";
-
+        cat.feed(1.0);*/
+        Car mazda = new Car("Sześć","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
+        Car mazda2 = new Car("Sześć","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
+       // Car mazda3 = new Car("Trzy","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
 
 
         Human bob = new Human();
@@ -60,12 +56,15 @@ public class Main {
         bob.lastName = "Kowalsky";
         bob.pet = dog;
         bob.showHumanInformation();
-
         bob.getSalary();
-        bob.setSalary(2.200);
-        bob.setTypeOfCar(mazda);
-        mazda.showCarInformation();
-        //dog.showAnimalInformationForHuman();
+        bob.setSalary(2200.0);
+        bob.settypeOfCar(mazda);
+        System.out.println(mazda.equals(mazda2));
+        System.out.println(mazda==mazda2);
+        System.out.println(mazda.hashCode() ==mazda2.hashCode());
+        System.out.println(mazda);
+        System.out.println(bob);
+        System.out.println(dog);
 
 
     }

@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.devices.Car;
+
 import java.time.LocalDate;
 
 public class Human
@@ -28,14 +30,16 @@ public class Human
         }
 
 
-        public void setTypeOfCar(Car typeOfCar)
+        public void settypeOfCar(Car typeOfCar)
         {
                 if (this.salary > typeOfCar.value)
                 {
                         System.out.println("Udało Ci się zakupić samochód za gotówkę");
+                        this.typeOfCar = typeOfCar;
                 } else if (this.salary > (typeOfCar.value / 12))
                 {
                         System.out.println("Udało Ci się wpakować w kredyt ... ale masz to auto !");
+                        this.typeOfCar = typeOfCar;
                 } else
                 {
                         System.out.println("Pomyśl o samochodzie jak będzie Cię na niego stać ,a teraz do roboty !!!");
@@ -68,8 +72,19 @@ public class Human
                 System.out.println("Imię :"+firstName);
                 System.out.println("Nazwisko :"+lastName);
 
-
-
         }
 
+        @Override
+        public String toString()
+        {
+                return "Human{" +
+                        "firstName='" + firstName + '\'' +
+                        ", lastName='" + lastName + '\'' +
+                        ", pet=" + pet +
+                        ", typeOfCar=" +typeOfCar +
+                        ", salary=" + salary +
+                        ", lastSalaryInformation=" + lastSalaryInformation +
+                        ", previousBalance=" + previousBalance +
+                        '}';
+        }
 }
