@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -46,9 +47,11 @@ public class Main {
         cat.takeForWalk();
         cat.takeForWalk();
         cat.feed(1.0);*/
-        Car mazda = new Car("Sześć","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
-        Car mazda2 = new Car("Sześć","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
-       // Car mazda3 = new Car("Trzy","Mazda","Bordowy",4,"Benzyna","Automatyczna","SUV",20000.00);
+
+        Car mazda = new Car("Sześć","Mazda",2020,"Bordowy",2,"Benzyna","Automatyczna","SUV",2500.00);
+        Car mazda2 = new Car("Sześć","Mazda",2015,"Bordowy",7,"Benzyna","Ręczna","Combi",2000.00);
+
+
 
 
         Human bob = new Human();
@@ -65,6 +68,11 @@ public class Main {
         System.out.println(mazda);
         System.out.println(bob);
         System.out.println(dog);
+        Phone s8 = new Phone("S8","Samsung",2017,8.6,"A9");
+        System.out.println(s8);
+        s8.turnOn();
+        mazda.turnOn();
+        System.out.println(s8);
 
 
     }
