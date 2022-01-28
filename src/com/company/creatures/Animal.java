@@ -1,7 +1,8 @@
-package com.company;
-import com.company.Human;
+package com.company.creatures;
+import com.company.Salleable;
+import com.company.creatures.Human;
 
-public class Animal implements Salleable
+public abstract class Animal implements Salleable,Edbile
 
 {
 
@@ -10,10 +11,10 @@ public class Animal implements Salleable
     private static final Double DEFAULT_CAT_WEIGHT = 2.3;
 
     final String species;
-    String name;
+    public String name;
     private Double weight;
-    Integer age;
-    Boolean alive;
+    public Integer age;
+    public Boolean alive;
 
     public Animal(String species)
     {
@@ -31,7 +32,8 @@ public class Animal implements Salleable
         }
     }
 
-    void feed(Double foodWeight)
+
+   public void feed(Double foodWeight)
     {
         if (getWeight()-2<= 0)
         {
@@ -42,6 +44,10 @@ public class Animal implements Salleable
             weight += foodWeight;
             System.out.println("Po jedzeniu moja waga wynosi " + round() + " kg.");
         }
+    }
+    public void feed()
+    {
+        weight++;
     }
     void takeForWalk()
     {
@@ -67,7 +73,7 @@ public class Animal implements Salleable
 
 
     }
-    Double getWeight()
+   public Double getWeight()
     {
         return round();
     }

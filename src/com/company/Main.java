@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -8,11 +12,11 @@ public class Main {
     public static void main(String[] args)
     {
 
-        Animal dog = new Animal("pies");
+        Animal dog = new Pet("pies");
         dog.name = "Max";
         dog.age = 4;
         System.out.println(dog);
-        Animal cat = new Animal("kot");
+        Animal cat = new Pet("kot");
         cat.name = "Mruczek";
         cat.age = 2;
         System.out.println(cat);
@@ -22,9 +26,9 @@ public class Main {
 
 
         dog.feed(1.0);
-        dog.feed(2.0);
+        dog.feed(2.0); */
         System.out.println("Przytyłem o " + (dog.getWeight() - weightBeforeEating + " kg"));
-        dog.takeForWalk();
+       /* dog.takeForWalk();
         dog.takeForWalk();
         dog.takeForWalk();
         dog.takeForWalk();
@@ -54,8 +58,8 @@ public class Main {
 
 
 
-        Human bob = new Human("Bob","Kowalsky",7000.0);
-        Human stan = new Human("Stan","Stanowy",5000.0);
+        Human bob = new Human("Bob","Kowalsky",7000.0,"Homo sapiens");
+        Human stan = new Human("Stan","Stanowy",5000.0,"Homo sapiens");
         bob.getSalary();
         bob.setSalary(2200.0);
         bob.settypeOfCar(mazda);
@@ -76,7 +80,10 @@ public class Main {
         bob.settypeOfCar(mazda);
         bob.gettypeOfCar().sell(bob,stan,5000.0);
         System.out.println(bob.firstName+" sprzedał  kupującemu "+stan.firstName+" samochód teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
-
+        dog.beEten();
+        dog.feed(2.5);
+        Animal porky = new FarmAnimal("Porky");
+        porky.beEten();
 
 
 

@@ -1,36 +1,34 @@
-package com.company;
+package com.company.creatures;
 
 import com.company.devices.Car;
-import org.w3c.dom.ls.LSOutput;
+
 
 import java.time.LocalDate;
 
-public class Human
+public class Human extends Animal
 {
-        String firstName;
-        String lastName;
-        Animal pet;
+        public String firstName;
+        public String lastName;
+        public  Animal pet;
         private Car typeOfCar;
         private Double salary;
         private LocalDate lastSalaryInformation;
         private Double previousBalance;
-        Double cash;
+        public Double cash;
 
-        public Human()
+
+        public Human(String firstName, String lastName,Double cash,String species)
         {
-                this.salary = 3500.00;
-                this.lastSalaryInformation = LocalDate.now();
-                this.previousBalance = this.salary;
-                this.typeOfCar = null;
-                this.pet = null;
+            super(species);
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.cash = cash;
+            this.salary = 3500.00;
+            this.lastSalaryInformation = LocalDate.now();
+            this.previousBalance = this.salary;
+            this.typeOfCar = null;
+            this.pet = null;
 
-        }
-
-        public Human(String firstName, String lastName,Double cash)
-        {
-                this.firstName = firstName;
-                this.lastName = lastName;
-                this.cash = cash;
         }
 
        public Car gettypeOfCar()
@@ -100,8 +98,13 @@ public class Human
                 return super.equals(obj);
         }
 
+    @Override
+    public void beEten()
+    {
 
-        @Override
+    }
+
+    @Override
         public String toString()
         {
                 return "Human{" +
