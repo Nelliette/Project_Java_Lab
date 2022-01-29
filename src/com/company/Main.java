@@ -7,9 +7,12 @@ import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class Main {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws MalformedURLException
     {
 
         Animal dog = new Pet("pies");
@@ -19,61 +22,26 @@ public class Main {
         Animal cat = new Pet("kot");
         cat.name = "Mruczek";
         cat.age = 2;
-        System.out.println(cat);
 
         Double weightBeforeEating = dog.getWeight();
-       /* dog.showAnimalInformation();
-
-
-        dog.feed(1.0);
-        dog.feed(2.0); */
-        System.out.println("Przytyłem o " + (dog.getWeight() - weightBeforeEating + " kg"));
-       /* dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
-        dog.takeForWalk();
         dog.feed(2.0);
+        System.out.println("Przytyłem o " + (dog.getWeight() - weightBeforeEating + " kg"));
 
-
-        Double catWeightBeforeEating = cat.getWeight();
-        cat.showAnimalInformation();
-
-        cat.feed(1.0);
-        cat.feed(2.0);
-        System.out.println("Przytyłem o " + (cat.getWeight() - catWeightBeforeEating + " kg"));
-        cat.takeForWalk();
-        cat.takeForWalk();
-        cat.takeForWalk();
-        cat.takeForWalk();
-        cat.feed(1.0);*/
-
-        Car mazda = new Car("Sześć","Mazda",2020,"Bordowy",2,"Benzyna","Automatyczna","SUV",2500.00);
-        Car mazda2 = new Car("Sześć","Mazda",2015,"Bordowy",7,"Benzyna","Ręczna","Combi",2000.00);
-
-
-
+        Car mazda = new Electric("Sześć","Mazda",2020,"Bordowy",2,"Elektryk","Automatyczna","SUV",25000.00);
+        Car mazda2 = new Diesel("Sześć","Mazda",2015,"Bordowy",7,"Diesel","Ręczna","Combi",32000.00);
+        Car mcp1 = new LPG("P1","McLaren",2015,"Granat",7,"LPG","Automatyczna","Coupe",40000.00);
 
         Human bob = new Human("Bob","Kowalsky",7000.0,"Homo sapiens");
         Human stan = new Human("Stan","Stanowy",5000.0,"Homo sapiens");
+
         bob.getSalary();
         bob.setSalary(2200.0);
         bob.settypeOfCar(mazda);
-        System.out.println(mazda.equals(mazda2));
-        System.out.println(mazda==mazda2);
-        System.out.println(mazda.hashCode() ==mazda2.hashCode());
-        System.out.println(mazda);
-        System.out.println(bob);
-        System.out.println(dog);
+        URL url = new URL("https://www.skype.com/pl/");
         Phone s8 = new Phone("S8","Samsung",2017,8.6,"A9");
-        System.out.println(s8);
         s8.turnOn();
         mazda.turnOn();
-        System.out.println(s8);
+
         stan.pet = dog;
         stan.pet.sell(stan,bob,1500.0);
         System.out.println(bob.firstName+" kupił "+stan.pet+" od "+stan.firstName+" teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
@@ -84,6 +52,17 @@ public class Main {
         dog.feed(2.5);
         Animal porky = new FarmAnimal("Porky");
         porky.beEten();
+        mazda.refuel();
+        mazda2.refuel();
+        mcp1.refuel();
+        s8.installAnnApp("Zedge");
+        s8.installAnnApp("Quick","14.5");
+        s8.installAnnApp("Skype","4.2.7","www.google.play.com");
+        s8.installAnnApp(s8.appsInstalled);
+        s8.installAnnApp(url);
+
+
+
 
 
 

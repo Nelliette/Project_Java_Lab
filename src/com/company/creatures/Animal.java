@@ -33,6 +33,7 @@ public abstract class Animal implements Salleable,Edbile
     }
 
 
+
    public void feed(Double foodWeight)
     {
         if (getWeight()-2<= 0)

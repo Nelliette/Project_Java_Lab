@@ -2,7 +2,7 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Salleable;
 
-public class Car extends Devices implements Salleable
+public abstract class Car extends Devices implements Salleable
 {
     String color;
     Integer age;
@@ -47,6 +47,9 @@ public class Car extends Devices implements Salleable
     {
         System.out.println("Uruchomienie silnika za ...3...2...1 i 1/2...1 i 1/4....1...jeee");
     }
+
+  public abstract void refuel();
+
 
 
 
