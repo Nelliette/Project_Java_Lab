@@ -7,33 +7,39 @@ import java.time.LocalDate;
 
 public class Human extends Animal
 {
+        private static final int DEFAULT_GARAGE_SIZE = 4;
+        private static final String HUMAN_SPECIES = "Homo Sapiens";
         public String firstName;
         public String lastName;
         public  Animal pet;
+        public Car [] garage;
         private Car typeOfCar;
         private Double salary;
-        private LocalDate lastSalaryInformation;
-        private Double previousBalance;
+        private final LocalDate lastSalaryInformation;
+        private final Double previousBalance;
         public Double cash;
 
 
-        public Human(String firstName, String lastName,Double cash,String species)
+        public Human(String firstName, String lastName,Double cash,int garageSize,Car typeOfCar)
         {
-            super(species);
+            super(HUMAN_SPECIES);
             this.firstName = firstName;
             this.lastName = lastName;
             this.cash = cash;
             this.salary = 3500.00;
             this.lastSalaryInformation = LocalDate.now();
             this.previousBalance = this.salary;
-            this.typeOfCar = null;
+            this.garage = new Car [garageSize];
             this.pet = null;
+            this.typeOfCar = typeOfCar;
+
 
         }
 
-       public Car gettypeOfCar()
+
+       public Car getTypeOfCar()
         {
-               return typeOfCar;
+            return typeOfCar;
         }
         public Double getCash()
         {
@@ -45,29 +51,113 @@ public class Human extends Animal
         }
         public void carBuyer(Car purchaser)
         {
-                this.typeOfCar = purchaser;
+               this.typeOfCar = purchaser;
         }
         public void carSeller(Car dealer)
         {
                 this.typeOfCar = null;
         }
-
-
-        public void settypeOfCar(Car typeOfCar)
+        public Car getgarageSize(int size)
         {
-                if (this.salary > typeOfCar.value)
-                {
-                        System.out.println("Udało Ci się zakupić samochód za gotówkę");
-                        this.typeOfCar = typeOfCar;
-                } else if (this.salary > (typeOfCar.value / 12))
-                {
-                        System.out.println("Udało Ci się wpakować w kredyt ... ale masz to auto !");
-                        this.typeOfCar = typeOfCar;
-                } else
-                {
-                        System.out.println("Pomyśl o samochodzie jak będzie Cię na niego stać ,a teraz do roboty !!!");
-                }
+             return garage[size];
         }
+
+        public void settypeOfCar(Car typeOfCar, int size)
+        {
+               if(size >= garage.length)
+               {
+                   System.out.println("Nie masz miejsca na to auto ");
+
+               }
+               else if(garage[size] != null)
+               {
+                   this.garage[size] = typeOfCar;
+                   System.out.println("Umieściłeś auto w garażu");
+               }
+               else
+               {
+                   System.out.println("Proszę wybrać inne miejsce na tym już stoi auto");
+               }
+
+        }
+
+    public boolean addNewCar(Car typeOfCar)
+    {
+        for (int i = 0; i< garage.length;i++)
+        {
+            if(garage[i] == null)
+            {
+                garage[i] = typeOfCar;
+                return true;
+
+            }
+        }
+        return false;
+    }
+        public void iWantCar(Car typeOfCar)
+        {
+            if(cash > typeOfCar.value)
+            {
+
+                int i = 0;
+                while(garage[i] == null)
+                {
+                    this.garage[i] = typeOfCar;
+                }
+            }
+            else if (cash /12 > typeOfCar.value)
+            {
+                if(addNewCar(typeOfCar))
+                {
+                    System.out.println("Brakuje miejsca na to auto");
+                }
+                System.out.println("Zakupiłeś to auto na raty.");
+            }
+
+        }
+        public void priceOfCar()
+        {
+            int price = 0;
+            for (Car car : garage)
+            {
+                if (car != null)
+                {
+                    price += car.value;
+                }
+            }
+            System.out.println("Kupujący "+firstName+ " w swoim garażu ma samochody o wartosci :"+price);
+        }
+        public boolean iHaveThisOne( Car typeOfCar)
+        {
+            for (Car car:garage)
+            {
+                if (car != null && car.equals(typeOfCar))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public boolean doIhaveSpaceForCar()
+        {
+            for (Car car : garage)
+                if (car == null)
+                {
+                    return true;
+                }
+            return false;
+        }
+        public void iSellMyCar(Car byebye)
+        {
+            for (int i = 0 ; i<garage.length;i++)
+            {
+                if (garage[i].equals(byebye))
+                {
+                    garage[i] = null;
+                }
+            }
+        }
+
 
         public Double getSalary()
         {
@@ -111,7 +201,6 @@ public class Human extends Animal
                         "firstName='" + firstName + '\'' +
                         ", lastName='" + lastName + '\'' +
                         ", pet=" + pet +
-                        ", typeOfCar=" +typeOfCar +
                         ", salary=" + salary +
                         ", lastSalaryInformation=" + lastSalaryInformation +
                         ", previousBalance=" + previousBalance +

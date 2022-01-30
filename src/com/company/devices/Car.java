@@ -2,6 +2,9 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Salleable;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public abstract class Car extends Devices implements Salleable
 {
     String color;
@@ -10,6 +13,7 @@ public abstract class Car extends Devices implements Salleable
     String gearbox;
     String type;
     public Double value;
+    public List <Human> historyOfCar;
 
     public Car(String model, String producer, Integer yearOfProduction, String color, Integer age, String fuel, String gearbox, String type, Double value)
     {
@@ -20,16 +24,30 @@ public abstract class Car extends Devices implements Salleable
         this.gearbox = gearbox;
         this.type = type;
         this.value = value;
+        this.historyOfCar = new LinkedList<>();
+    }
+    private boolean thatWasMyLastCar(Human seller)
+    {
+        return historyOfCar.get(historyOfCar.size()-1).equals(seller);
     }
     public void sell(Human seller,Human buyer,Double price)
     {
-        if(seller.gettypeOfCar() != null)
+        if(seller.iHaveThisOne(this))
         {
-            if (buyer.getCash() >= price)
+            System.out.println("Chcę sprzedać ten samochód");
+            if (!buyer.doIhaveSpaceForCar())
+            {
+                System.out.println("Nie da rady kupić auta ... nie zmieści sie ;(");
+            }
+            else if(!this.thatWasMyLastCar(seller))
+            {
+                System.out.println("To nie jest auto tego właściciela !!!!! ");
+            }
+            else if (buyer.getCash() >= price)
             {
                 buyer.setCash(buyer.getCash()-price);
                 seller.setCash(seller.getCash()+price);
-                buyer.carBuyer(seller.gettypeOfCar());
+                buyer.carBuyer(seller.getTypeOfCar());
                 seller.carSeller(null);
                 System.out.println("Właśnie kupiłeś samochód.");
             }

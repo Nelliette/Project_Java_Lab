@@ -27,16 +27,17 @@ public class Main {
         dog.feed(2.0);
         System.out.println("Przytyłem o " + (dog.getWeight() - weightBeforeEating + " kg"));
 
-        Car mazda = new Electric("Sześć","Mazda",2020,"Bordowy",2,"Elektryk","Automatyczna","SUV",25000.00);
-        Car mazda2 = new Diesel("Sześć","Mazda",2015,"Bordowy",7,"Diesel","Ręczna","Combi",32000.00);
-        Car mcp1 = new LPG("P1","McLaren",2015,"Granat",7,"LPG","Automatyczna","Coupe",40000.00);
+        Car mazda = new Electric("Sześć","Mazda",2020,"Bordowy",2,"Elektryk","Automatyczna","SUV",2500.00);
+        Car mazda2 = new Diesel("Sześć","Mazda",2015,"Bordowy",7,"Diesel","Ręczna","Combi",3200.00);
+        Car mcp1 = new LPG("P1","McLaren",2015,"Granat",7,"LPG","Automatyczna","Coupe",4000.00);
 
-        Human bob = new Human("Bob","Kowalsky",7000.0,"Homo sapiens");
-        Human stan = new Human("Stan","Stanowy",5000.0,"Homo sapiens");
+        Human bob = new Human("Bob","Kowalsky",7000.0,6,mazda);
+        Human stan = new Human("Stan","Stanowy",5000.0,2,mcp1);
 
         bob.getSalary();
         bob.setSalary(2200.0);
-        bob.settypeOfCar(mazda);
+        bob.settypeOfCar(mazda,1);
+        bob.settypeOfCar(mcp1,2);
         URL url = new URL("https://www.skype.com/pl/");
         Phone s8 = new Phone("S8","Samsung",2017,8.6,"A9");
         s8.turnOn();
@@ -45,8 +46,7 @@ public class Main {
         stan.pet = dog;
         stan.pet.sell(stan,bob,1500.0);
         System.out.println(bob.firstName+" kupił "+stan.pet+" od "+stan.firstName+" teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
-        bob.settypeOfCar(mazda);
-        bob.gettypeOfCar().sell(bob,stan,5000.0);
+        bob.getTypeOfCar().sell(bob,stan,5000.0);
         System.out.println(bob.firstName+" sprzedał  kupującemu "+stan.firstName+" samochód teraz pozostało mu "+bob.cash+" natomiast "+stan.firstName+" ma na koncie :"+stan.cash);
         dog.beEten();
         dog.feed(2.5);
@@ -60,6 +60,16 @@ public class Main {
         s8.installAnnApp("Skype","4.2.7","www.google.play.com");
         s8.installAnnApp(s8.appsInstalled);
         s8.installAnnApp(url);
+        bob.getgarageSize(4);
+        bob.iWantCar(mazda);
+        bob.settypeOfCar(mazda,0);
+        bob.priceOfCar();
+
+
+
+
+
+
 
 
 
